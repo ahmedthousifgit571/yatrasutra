@@ -904,41 +904,7 @@ yatrasutra/
 
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! Here's how you can help:
-
-### Reporting Bugs
-
-1. Check existing [Issues](https://github.com/ahmedthousifgit571/yatrasutra/issues)
-2. Create a new issue with:
-   - Clear title
-   - Steps to reproduce
-   - Expected vs actual behavior
-   - Screenshots (if applicable)
-
-### Feature Requests
-
-1. Open an issue with the `enhancement` label
-2. Describe the feature and use case
-3. Explain expected behavior
-
-### Pull Requests
-
-1. **Fork** the repository
-2. **Create** a feature branch
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Commit** your changes
-   ```bash
-   git commit -m 'Add amazing feature'
-   ```
-4. **Push** to the branch
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-5. **Open** a Pull Request
 
 ### Code Style
 
@@ -993,22 +959,7 @@ Need help? Have questions?
 
 ---
 
-## 🗺️ Roadmap
 
-### Version 2.0 (Planned)
-
-- [ ] Email notifications for approvals/rejections
-- [ ] SMS integration for booking confirmations
-- [ ] Multi-language support
-- [ ] Payment gateway integration
-- [ ] Advanced analytics dashboard
-- [ ] Bulk approval/rejection
-- [ ] Export submissions to Excel
-- [ ] Custom PDF templates
-- [ ] Calendar view for bookings
-- [ ] Mobile app (React Native)
-
----
 
 ## 📊 Stats
 
