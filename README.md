@@ -1,130 +1,289 @@
-# Admin-approved Dynamic Form + PDF Generator
+<div align="center">
 
-A full-stack application that allows users to submit dynamic forms for admin approval, with automatic PDF generation upon approval.
+# 📄 Yatrasutra - Admin-Approved Dynamic Form & PDF Generator
+
+### A full-stack application for dynamic form submission with admin approval and automated PDF certificate generation
+
+[![React](https://img.shields.io/badge/React-18.0-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-16+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-4.x-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![Appwrite](https://img.shields.io/badge/Appwrite-Cloud-F02E65?logo=appwrite&logoColor=white)](https://appwrite.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api-documentation) • [Contributing](#-contributing)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Demo](#-demo)
+- [Tech Stack](#%EF%B8%8F-tech-stack)
+- [Architecture](#-architecture)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [API Documentation](#-api-documentation)
+- [PDF Generation](#-pdf-generation)
+- [Customization](#-customization)
+- [Deployment](#-deployment)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
+## 🌟 Overview
+
+**Yatrasutra** is a comprehensive booking and form management system that streamlines the process of collecting user information, admin review, and automated certificate generation. Built specifically for tour operators and service providers who need an approval workflow with professional PDF documentation.
+
+### Key Highlights
+
+- 🔐 **Secure Authentication** - Role-based access control (Admin/User)
+- 📝 **Dynamic Forms** - Server-driven form schema for easy customization
+- ✅ **Approval Workflow** - Admin review and approval/rejection system
+- 📄 **Automated PDFs** - Professional booking receipts with logo and seal
+- 📊 **Real-time Dashboard** - Track submissions and statistics
+- 🎨 **Beautiful UI** - Modern, responsive design with Tailwind CSS
+
+---
 
 ## 🎯 Features
 
-- **User Authentication**: Role-based login system (Admin/User)
-- **Dynamic Form Generation**: Forms are built from a server-provided schema
-- **Submission Management**: Users can submit forms and track their status
-- **Admin Dashboard**: Review, approve, or reject submissions
-- **PDF Generation**: Automatic PDF certificate generation upon approval
-- **Real-time Status Updates**: Users see their submission status in real-time
-- **Responsive Design**: Beautiful UI built with Tailwind CSS
+### For Users
+
+- ✅ **Easy Registration & Login** - Secure account creation with email/password
+- 📝 **Dynamic Booking Forms** - Fill out tour booking forms with validation
+- 📊 **Submission Tracking** - View status of all submissions in real-time
+- 🔔 **Status Notifications** - Get notified when submissions are approved/rejected
+- 📥 **PDF Downloads** - Download professional booking confirmation receipts
+- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+
+### For Admins
+
+- 📈 **Dashboard Analytics** - View statistics (total, pending, approved, rejected)
+- 🔍 **Submission Review** - Detailed view of all form submissions
+- ✅ **One-Click Approval** - Approve submissions and auto-generate PDFs
+- ❌ **Rejection with Feedback** - Reject with custom messages to users
+- 🎚️ **Filter & Sort** - Filter submissions by status (all, pending, approved, rejected)
+- 📄 **PDF Preview** - View generated PDFs directly from dashboard
+
+### Technical Features
+
+- 🔒 **JWT Authentication** - Secure token-based authentication
+- 🗄️ **Appwrite Backend** - Cloud database and storage
+- 📦 **File Management** - Automated PDF storage and retrieval
+- 🎨 **Custom PDF Design** - Branded receipts with logo, seal, and company info
+- ⚡ **Fast & Efficient** - Optimized for performance
+- 🔄 **RESTful API** - Clean, documented API endpoints
+
+---
+
+## 🎥 Demo
+
+### User Dashboard
+Users can submit forms and track their booking status in a clean, intuitive interface.
+
+### Admin Dashboard
+Admins get a comprehensive view with statistics and easy approval workflow.
+
+### PDF Certificate
+Professional booking confirmation receipts with:
+- Company logo
+- Official seal
+- Complete booking details
+- Terms & conditions
+- Authorized signature section
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React 18
-- React Router v6
-- React Hook Form
-- Tailwind CSS
-- Axios
-- Vite
+```
+⚛️  React 18              - UI Library
+🔀  React Router v6       - Client-side routing
+📝  React Hook Form       - Form validation
+🎨  Tailwind CSS          - Styling framework
+📡  Axios                 - HTTP client
+⚡  Vite                  - Build tool
+```
 
 ### Backend
-- Node.js
-- Express
-- Appwrite (Auth + Database + Storage)
-- JWT Authentication
-- PDFKit (PDF Generation)
-
-## 📋 Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Node.js (v16 or higher)
-- npm or yarn
-- An Appwrite account (Cloud or Self-hosted)
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-cd pdfGenerator
+```
+🟢  Node.js               - JavaScript runtime
+🚂  Express               - Web framework
+🔐  JWT                   - Authentication
+📄  PDFKit                - PDF generation
+☁️  Appwrite              - Backend-as-a-Service
 ```
 
-### 2. Install Dependencies
-
-Install root dependencies:
-```bash
-npm install
+### Infrastructure
+```
+🗄️  Appwrite Database    - NoSQL database
+💾  Appwrite Storage      - File storage
+🔑  Appwrite Auth         - User management
 ```
 
-Install server and client dependencies:
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        Client (React)                        │
+│  ┌────────────┐  ┌────────────┐  ┌─────────────────────┐  │
+│  │   Login    │  │    User    │  │       Admin         │  │
+│  │   Pages    │  │  Dashboard │  │     Dashboard       │  │
+│  └────────────┘  └────────────┘  └─────────────────────┘  │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ HTTP/REST API
+┌───────────────────────────▼─────────────────────────────────┐
+│                    Server (Express)                          │
+│  ┌────────────┐  ┌────────────┐  ┌─────────────────────┐  │
+│  │    Auth    │  │    Form    │  │       Admin         │  │
+│  │   Routes   │  │   Routes   │  │       Routes        │  │
+│  └────────────┘  └────────────┘  └─────────────────────┘  │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │            PDF Generator (PDFKit)                     │  │
+│  └──────────────────────────────────────────────────────┘  │
+└───────────────────────────┬─────────────────────────────────┘
+                            │
+┌───────────────────────────▼─────────────────────────────────┐
+│                    Appwrite Cloud                            │
+│  ┌────────────┐  ┌────────────┐  ┌─────────────────────┐  │
+│  │  Database  │  │  Storage   │  │        Auth         │  │
+│  │   (NoSQL)  │  │   (PDFs)   │  │   (JWT/Users)       │  │
+│  └────────────┘  └────────────┘  └─────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+Before starting, ensure you have:
+
+- ✅ **Node.js** v16 or higher ([Download](https://nodejs.org/))
+- ✅ **npm** or **yarn** package manager
+- ✅ **Appwrite Account** - [Sign up](https://cloud.appwrite.io/) (Free)
+- ✅ **Git** - For cloning the repository
+
+### Quick Start
+
 ```bash
+# 1. Clone the repository
+git clone https://github.com/ahmedthousifgit571/yatrasutra.git
+cd yatrasutra
+
+# 2. Install all dependencies (root, server, and client)
 npm run install:all
+
+# 3. Set up environment variables (see Configuration section)
+cp server/.env.example server/.env
+cp client/.env.example client/.env
+
+# 4. Configure Appwrite (see Configuration section)
+
+# 5. Start the development servers
+npm run dev
 ```
 
-Or install individually:
-```bash
-cd server && npm install
-cd ../client && npm install
-```
+The application will be available at:
+- 🌐 **Frontend**: http://localhost:3000
+- 🔌 **Backend**: http://localhost:5000
 
-### 3. Appwrite Setup
+---
 
-#### Create an Appwrite Project
+## ⚙️ Configuration
 
-1. Go to [Appwrite Cloud](https://cloud.appwrite.io/) or your self-hosted instance
-2. Create a new project
-3. Note your Project ID
+### 1. Appwrite Setup
 
-#### Create Database Collections
+#### Step 1: Create Project
 
-Create a database and the following collections:
+1. Go to [Appwrite Cloud](https://cloud.appwrite.io/)
+2. Click **"Create Project"**
+3. Name it (e.g., "Yatrasutra")
+4. Copy your **Project ID**
+
+#### Step 2: Create Database
+
+1. Go to **Databases** → **Create Database**
+2. Name it (e.g., "main")
+3. Copy the **Database ID**
+
+#### Step 3: Create Collections
 
 **Collection 1: `users`**
-- Collection ID: `users`
-- Attributes:
-  - `email` (String, Required, 255 characters)
-  - `password` (String, Required, 255 characters) 
-  - `name` (String, Required, 255 characters)
-  - `role` (String, Required, 50 characters, default: "user")
-  - `createdAt` (String, Required)
+
+| Attribute | Type | Size | Required | Default |
+|-----------|------|------|----------|---------|
+| email | String | 255 | ✅ | - |
+| password | String | 255 | ✅ | - |
+| name | String | 255 | ✅ | - |
+| role | String | 50 | ✅ | "user" |
+| createdAt | String | 255 | ✅ | - |
+
+**Permissions:**
+- Read: Any
+- Create: Any
+- Update: Users
+- Delete: Users
+
+---
 
 **Collection 2: `submissions`**
-- Collection ID: `submissions`
-- Attributes:
-  - `userId` (String, Required, 255 characters)
-  - `data` (String, Required, 10000 characters) - JSON string
-  - `status` (String, Required, 50 characters, default: "pending")
-  - `pdfUrl` (String, Optional, 1000 characters)
-  - `adminMessage` (String, Optional, 1000 characters)
-  - `createdAt` (String, Required)
-  - `updatedAt` (String, Required)
 
-#### Create Storage Bucket
+| Attribute | Type | Size | Required | Default |
+|-----------|------|------|----------|---------|
+| userId | String | 255 | ✅ | - |
+| data | String | 10000 | ✅ | - |
+| status | String | 50 | ✅ | "pending" |
+| pdfUrl | String | 1000 | ❌ | - |
+| adminMessage | String | 1000 | ❌ | - |
+| createdAt | String | 255 | ✅ | - |
+| updatedAt | String | 255 | ✅ | - |
 
-1. Go to Storage in Appwrite Console
-2. Create a new bucket named "pdfs"
-3. Set permissions:
+**Permissions:**
+- Read: Any
+- Create: Users
+- Update: Users
+- Delete: Users
+
+#### Step 4: Create Storage Bucket
+
+1. Go to **Storage** → **Create Bucket**
+2. Name it **"pdfs"**
+3. Set **Maximum file size**: 10MB
+4. Set **File extensions**: pdf
+5. **Permissions:**
    - Read: Any
-   - Write: Users (or specific role)
-4. Note the Bucket ID
+   - Create: Users
+   - Update: Users
+   - Delete: Users
+6. Copy the **Bucket ID**
 
-#### Generate API Key
+#### Step 5: Generate API Key
 
-1. Go to Settings → API Keys
-2. Create a new API key with the following scopes:
-   - `databases.read`
-   - `databases.write`
-   - `storage.read`
-   - `storage.write`
-3. Copy the API key
+1. Go to **Settings** → **API Keys**
+2. Click **"Create API Key"**
+3. Name it (e.g., "Server API Key")
+4. Select scopes:
+   - ✅ `databases.read`
+   - ✅ `databases.write`
+   - ✅ `storage.read`
+   - ✅ `storage.write`
+5. Copy the **API Key** (shown only once!)
 
-### 4. Environment Configuration
+### 2. Environment Variables
 
-#### Server Configuration
-
-Create `server/.env`:
-
-```bash
-cp server/.env.example server/.env
-```
-
-Edit `server/.env`:
+#### Server Configuration (`server/.env`)
 
 ```env
 # Appwrite Configuration
@@ -141,280 +300,731 @@ APPWRITE_BUCKET_ID=your_bucket_id
 # Server Configuration
 PORT=5000
 NODE_ENV=development
-JWT_SECRET=your_super_secret_jwt_key_change_this
+
+# JWT Secret (generate a secure random string)
+JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
 ```
 
-#### Client Configuration
-
-Create `client/.env`:
-
-```bash
-cp client/.env.example client/.env
-```
-
-Edit `client/.env`:
+#### Client Configuration (`client/.env`)
 
 ```env
+# API Configuration
 VITE_API_URL=http://localhost:5000
+
+# Appwrite Configuration
 VITE_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
 VITE_APPWRITE_PROJECT_ID=your_project_id_here
 ```
 
-### 5. Run the Application
+### 3. Logo and Seal Images
 
-#### Development Mode
-
-Run both server and client concurrently:
-
-```bash
-npm run dev
+Place your company logo and official seal in:
+```
+server/src/assets/
+├── logo.png    (Recommended: 200x80px, transparent background)
+└── seal.png    (Recommended: 200x200px, circular, transparent background)
 ```
 
-Or run them separately:
+---
 
-**Terminal 1 - Server:**
+## 🚀 Usage
+
+### Running in Development
+
 ```bash
+# Run both frontend and backend concurrently
+npm run dev
+
+# OR run separately:
+
+# Terminal 1 - Backend
 cd server
 npm run dev
-```
 
-**Terminal 2 - Client:**
-```bash
+# Terminal 2 - Frontend
 cd client
 npm run dev
 ```
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend: http://localhost:5000
-
-### 6. Demo Credentials
+### Demo Credentials
 
 **Admin Account:**
-- Email: `admin@example.com`
-- Password: `admin123`
+- 📧 Email: `admin@example.com`
+- 🔑 Password: `admin123`
 
 **User Account:**
-- Register a new account through the UI
+- Create a new account via the registration page
 
-⚠️ **Important**: Change the admin credentials in `server/src/routes/auth.js` before deploying to production!
+> ⚠️ **Important**: Change admin credentials before production deployment!
 
-## 📱 Application Flow
-
-### User Flow
-
-1. **Login/Register**: Users create an account or log in
-2. **Fill Form**: Navigate to "New Submission" and fill out the dynamic form
-3. **Submit**: Submit the form and wait for admin approval
-4. **Track Status**: View submission status in "My Submissions"
-5. **Download PDF**: Once approved, download the generated PDF certificate
-
-### Admin Flow
-
-1. **Login**: Sign in with admin credentials
-2. **View Dashboard**: See statistics and pending submissions
-3. **Review Submissions**: Click "View Details" to see submission data
-4. **Approve/Reject**: 
-   - Approve: Automatically generates a PDF and notifies the user
-   - Reject: Provide a reason and notify the user
-5. **Track All**: View all submissions by status (pending/approved/rejected)
-
-## 🏗️ Project Structure
+### User Workflow
 
 ```
-pdfGenerator/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   │   ├── DynamicForm.jsx
-│   │   │   ├── ProtectedRoute.jsx
-│   │   │   ├── SubmissionModal.jsx
-│   │   │   └── SubmissionsList.jsx
-│   │   ├── contexts/      # React contexts
-│   │   │   └── AuthContext.jsx
-│   │   ├── pages/         # Page components
-│   │   │   ├── AdminDashboard.jsx
-│   │   │   ├── Login.jsx
-│   │   │   └── UserDashboard.jsx
-│   │   ├── services/      # API services
-│   │   │   └── api.js
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── index.html
-│   ├── package.json
-│   ├── tailwind.config.js
-│   └── vite.config.js
-├── server/                # Express backend
-│   ├── src/
-│   │   ├── config/       # Configuration
-│   │   │   └── appwrite.js
-│   │   ├── middleware/   # Express middleware
-│   │   │   └── auth.js
-│   │   ├── routes/       # API routes
-│   │   │   ├── admin.js
-│   │   │   ├── auth.js
-│   │   │   └── form.js
-│   │   ├── utils/        # Utilities
-│   │   │   └── pdfGenerator.js
-│   │   └── index.js
-│   └── package.json
-├── package.json
-└── README.md
+1. Register/Login
+   └─→ Access User Dashboard
+
+2. Fill Booking Form
+   └─→ Enter tour details, dates, guest info, payment
+
+3. Submit Form
+   └─→ Form sent to admin for review
+
+4. Track Status
+   └─→ Monitor in "My Submissions" tab
+   
+5. Download PDF
+   └─→ Once approved, download booking receipt
 ```
 
-## 🔌 API Endpoints
+### Admin Workflow
 
-### Authentication
-- `POST /api/auth/login` - User login
-- `POST /api/auth/register` - User registration
+```
+1. Login with Admin Credentials
+   └─→ Access Admin Dashboard
 
-### Form Management
-- `GET /api/form/schema` - Get dynamic form schema
-- `POST /api/form/submit` - Submit a form
-- `GET /api/form/my-submissions` - Get user's submissions
-- `GET /api/form/:id` - Get specific submission
+2. View Statistics
+   └─→ See pending, approved, rejected counts
 
-### Admin Operations
-- `GET /api/admin/submissions?status=pending` - Get all submissions (with optional status filter)
-- `POST /api/admin/form/:id/approve` - Approve submission and generate PDF
-- `POST /api/admin/form/:id/reject` - Reject submission with message
+3. Review Submissions
+   └─→ Click "View Details" on any submission
 
-## 🔐 Security Considerations
+4. Approve or Reject
+   ├─→ Approve: Auto-generates PDF certificate
+   └─→ Reject: Provide feedback message
 
-### Development vs Production
-
-⚠️ **This is a development setup. Before deploying to production:**
-
-1. **Password Hashing**: Implement bcrypt for password hashing
-   ```bash
-   npm install bcrypt
-   ```
-
-2. **Environment Variables**: Use proper secrets management
-   - Never commit `.env` files
-   - Use services like Vercel/Netlify environment variables
-   - Rotate API keys regularly
-
-3. **Admin Credentials**: Store admin users in Appwrite, not hardcoded
-
-4. **CORS Configuration**: Restrict CORS to your frontend domain
-
-5. **Rate Limiting**: Add rate limiting to prevent abuse
-   ```bash
-   npm install express-rate-limit
-   ```
-
-6. **Input Validation**: Add comprehensive input validation
-   - Use Zod schemas for validation
-   - Sanitize user inputs
-
-7. **HTTPS**: Always use HTTPS in production
-
-## 🚢 Deployment
-
-### Frontend (Vercel)
-
-1. Push code to GitHub
-2. Import project to Vercel
-3. Set environment variables:
-   - `VITE_API_URL`
-   - `VITE_APPWRITE_ENDPOINT`
-   - `VITE_APPWRITE_PROJECT_ID`
-4. Deploy
-
-### Backend (Render/Heroku)
-
-**Render:**
-1. Create new Web Service
-2. Connect repository
-3. Set build command: `cd server && npm install`
-4. Set start command: `cd server && npm start`
-5. Add environment variables from `.env`
-6. Deploy
-
-**Heroku:**
-```bash
-heroku create your-app-name
-heroku config:set APPWRITE_ENDPOINT=...
-heroku config:set APPWRITE_PROJECT_ID=...
-# ... set all environment variables
-git push heroku main
+5. Manage All Submissions
+   └─→ Filter by status, view history
 ```
 
-### Appwrite
+---
 
-Use Appwrite Cloud (https://cloud.appwrite.io/) or self-host:
-- [Appwrite Installation Docs](https://appwrite.io/docs/installation)
+## 🔌 API Documentation
+
+### Authentication Endpoints
+
+#### Register User
+```http
+POST /api/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "message": "User registered successfully",
+  "user": {
+    "id": "user_id",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "user"
+  },
+  "token": "jwt_token_here"
+}
+```
+
+#### Login
+```http
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "user": {
+    "id": "user_id",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "user"
+  },
+  "token": "jwt_token_here"
+}
+```
+
+---
+
+### Form Endpoints
+
+#### Get Form Schema
+```http
+GET /api/form/schema
+Authorization: Bearer {token}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "schema": {
+    "fields": [
+      {
+        "name": "clientName",
+        "label": "Client Name",
+        "type": "text",
+        "required": true,
+        "placeholder": "Enter full name"
+      }
+    ]
+  }
+}
+```
+
+#### Submit Form
+```http
+POST /api/form/submit
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "data": {
+    "clientName": "John Doe",
+    "email": "john@example.com",
+    "destination": "Maldives",
+    "checkInDate": "2025-12-01",
+    "numberOfAdults": 2,
+    "packageType": "deluxe"
+  }
+}
+```
+
+#### Get My Submissions
+```http
+GET /api/form/my-submissions
+Authorization: Bearer {token}
+```
+
+---
+
+### Admin Endpoints
+
+#### Get All Submissions
+```http
+GET /api/admin/submissions?status=pending
+Authorization: Bearer {token}
+```
+
+**Query Parameters:**
+- `status` (optional): `all`, `pending`, `approved`, `rejected`
+
+#### Approve Submission
+```http
+POST /api/admin/form/{id}/approve
+Authorization: Bearer {token}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "message": "Submission approved and PDF generated",
+  "submission": {
+    "id": "submission_id",
+    "status": "approved",
+    "pdfUrl": "https://cloud.appwrite.io/.../file.pdf"
+  }
+}
+```
+
+#### Reject Submission
+```http
+POST /api/admin/form/{id}/reject
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "message": "Please provide valid travel dates"
+}
+```
+
+---
+
+## 📄 PDF Generation
+
+### Features
+
+The system automatically generates professional PDF booking receipts with:
+
+✅ **Company Branding**
+- Logo at the top
+- Official seal at the bottom
+- Company name and registration details
+
+✅ **Booking Information**
+- Invoice number and date
+- Client details (name, email, contact)
+- Destination and travel dates
+- Package type and meal plan
+- Number of guests
+
+✅ **Financial Details**
+- Cost breakdown per adult
+- Total package value
+- Advance amount received
+- Balance payable
+
+✅ **Legal Information**
+- Terms and conditions
+- Cancellation policy
+- Authorized signatory section
+
+✅ **Professional Design**
+- Watermark background
+- Clean table layouts
+- Color-coded sections
+- Single or double-page format
+
+### PDF Layout
+
+```
+┌─────────────────────────────────────────┐
+│          [COMPANY LOGO]                 │
+│    BOOKING CONFIRMATION RECEIPT         │
+│    Registered Address & Contact         │
+├─────────────────────────────────────────┤
+│  INVOICE DETAILS                        │
+│  ┌─────────────────────────────────┐   │
+│  │ Invoice No:  YS/INV/2025/071    │   │
+│  │ Payment:     Advance Paid       │   │
+│  └─────────────────────────────────┘   │
+├─────────────────────────────────────────┤
+│  CLIENT DETAILS                         │
+│  ┌─────────────────────────────────┐   │
+│  │ Name:    John Doe               │   │
+│  │ Email:   john@example.com       │   │
+│  │ Contact: +91 9876543210         │   │
+│  └─────────────────────────────────┘   │
+├─────────────────────────────────────────┤
+│  BOOKING SUMMARY                        │
+│  [Table: Destination, Duration, etc.]   │
+├─────────────────────────────────────────┤
+│  COST BREAKDOWN                         │
+│  [Table: Items, Qty, Rate, Amount]      │
+├─────────────────────────────────────────┤
+│  TERMS & NOTES                          │
+│  • Payment terms                        │
+│  • Cancellation policy                  │
+├─────────────────────────────────────────┤
+│  Authorized Signatory                   │
+│  (Seal & Signature)                     │
+│                                         │
+│          [OFFICIAL SEAL]                │
+│    YATRASUTRA HOLIDAYS PVT LTD          │
+└─────────────────────────────────────────┘
+```
+
+### Customizing PDF
+
+To modify the PDF layout, edit `server/src/utils/pdfGenerator.js`:
+
+```javascript
+// Change colors
+const primaryColor = '#1e3a8a';  // Dark blue
+const orangeColor = '#f97316';    // Orange
+
+// Modify seal size
+const sealSize = 100; // pixels
+
+// Update company information
+const companyInfo = {
+  name: 'Your Company Name',
+  address: 'Your Address',
+  phone: 'Your Phone',
+  email: 'Your Email'
+};
+```
+
+---
 
 ## 🎨 Customization
 
-### Modify Form Schema
+### Change Form Fields
 
-Edit `server/src/routes/form.js` - `formSchema` object:
+Edit `server/src/routes/form.js`:
 
 ```javascript
 const formSchema = {
   fields: [
     {
-      name: 'fieldName',
-      label: 'Field Label',
-      type: 'text', // text, email, number, textarea, select, checkbox, date
+      name: 'customField',
+      label: 'Custom Field Label',
+      type: 'text',        // text, email, number, date, select, textarea, checkbox
       required: true,
-      placeholder: 'Placeholder text'
-    },
-    // Add more fields...
+      placeholder: 'Enter value',
+      options: []          // For select fields
+    }
   ]
 };
 ```
 
-### Customize PDF Layout
+### Update Theme Colors
 
-Edit `server/src/utils/pdfGenerator.js` to modify PDF styling and layout.
+Edit `client/tailwind.config.js`:
 
-### Change Theme Colors
+```javascript
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        }
+      }
+    }
+  }
+};
+```
 
-Edit `client/tailwind.config.js` to customize the color scheme.
+### Modify UI Components
+
+- **Login Page**: `client/src/pages/Login.jsx`
+- **User Dashboard**: `client/src/pages/UserDashboard.jsx`
+- **Admin Dashboard**: `client/src/pages/AdminDashboard.jsx`
+- **Form Component**: `client/src/components/DynamicForm.jsx`
+
+---
+
+## 🚢 Deployment
+
+### Frontend Deployment (Vercel)
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Import to Vercel**
+   - Go to [Vercel](https://vercel.com)
+   - Click "Import Project"
+   - Select your repository
+   - Set **Root Directory**: `client`
+
+3. **Configure Build Settings**
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+
+4. **Environment Variables**
+   ```
+   VITE_API_URL=https://your-backend.onrender.com
+   VITE_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+   VITE_APPWRITE_PROJECT_ID=your_project_id
+   ```
+
+5. **Deploy** ✅
+
+---
+
+### Backend Deployment (Render)
+
+1. **Create Web Service**
+   - Go to [Render](https://render.com)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+
+2. **Configure Service**
+   - Name: `yatrasutra-api`
+   - Root Directory: `server`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+
+3. **Environment Variables**
+   Add all variables from `server/.env`
+
+4. **Deploy** ✅
+
+---
+
+### Production Checklist
+
+Before going live:
+
+- [ ] Change admin credentials
+- [ ] Use strong JWT secret
+- [ ] Enable HTTPS
+- [ ] Configure CORS properly
+- [ ] Add rate limiting
+- [ ] Implement password hashing (bcrypt)
+- [ ] Set up monitoring (Sentry, LogRocket)
+- [ ] Configure backup strategy
+- [ ] Update Appwrite permissions
+- [ ] Test all workflows
+- [ ] Prepare support documentation
+
+---
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-**Issue: CORS errors**
-- Ensure `VITE_API_URL` in client `.env` matches your server URL
-- Check CORS configuration in `server/src/index.js`
+<details>
+<summary><strong>CORS Errors</strong></summary>
 
-**Issue: Appwrite connection failed**
-- Verify your Appwrite endpoint URL
-- Check that API key has correct permissions
-- Ensure Project ID is correct
+**Problem**: Frontend can't connect to backend
 
-**Issue: PDF not generating**
-- Check server logs for errors
-- Verify Appwrite storage bucket permissions
-- Ensure bucket ID is correct in `.env`
+**Solution**:
+1. Check `VITE_API_URL` in `client/.env` matches your backend URL
+2. Verify CORS configuration in `server/src/index.js`:
+   ```javascript
+   app.use(cors({
+     origin: 'https://your-frontend-domain.com'
+   }));
+   ```
+</details>
 
-**Issue: Authentication not working**
-- Check JWT_SECRET is set in server `.env`
-- Verify user exists in Appwrite database
-- Check browser console for errors
+<details>
+<summary><strong>Appwrite Connection Failed</strong></summary>
 
-## 📝 License
+**Problem**: Can't connect to Appwrite
 
-MIT License - feel free to use this project for personal or commercial purposes.
+**Solution**:
+1. Verify endpoint URL is correct
+2. Check Project ID matches
+3. Ensure API key has correct scopes
+4. Test connection in Appwrite Console
+</details>
 
-## 🤝 Contributing
+<details>
+<summary><strong>PDF Not Generating</strong></summary>
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+**Problem**: Approval doesn't create PDF
 
-## 📧 Support
+**Solution**:
+1. Check server logs for errors
+2. Verify bucket permissions in Appwrite
+3. Ensure bucket ID is correct in `.env`
+4. Check logo/seal images exist in `server/src/assets/`
+5. Verify storage quotas in Appwrite
+</details>
 
-For issues and questions, please open an issue on GitHub.
+<details>
+<summary><strong>Authentication Not Working</strong></summary>
+
+**Problem**: Can't login or register
+
+**Solution**:
+1. Check `JWT_SECRET` is set in `server/.env`
+2. Verify user collection exists in Appwrite
+3. Check permissions on users collection
+4. Clear browser localStorage and cookies
+5. Check network tab for API errors
+</details>
+
+<details>
+<summary><strong>Build Errors</strong></summary>
+
+**Problem**: Application won't build
+
+**Solution**:
+1. Delete `node_modules` and reinstall:
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
+2. Check Node.js version (use v16+)
+3. Verify all environment variables are set
+4. Check for syntax errors in code
+</details>
 
 ---
 
-**Built with ❤️ using React, Express, and Appwrite**
+## 📂 Project Structure
+
+```
+yatrasutra/
+│
+├── client/                          # React Frontend
+│   ├── public/                      # Static assets
+│   ├── src/
+│   │   ├── assets/                  # Images, fonts, etc.
+│   │   │   ├── logo.png
+│   │   │   └── seal.png
+│   │   ├── components/              # Reusable components
+│   │   │   ├── DynamicForm.jsx      # Form builder
+│   │   │   ├── ProtectedRoute.jsx   # Auth guard
+│   │   │   ├── SubmissionModal.jsx  # Details modal
+│   │   │   └── SubmissionsList.jsx  # List view
+│   │   ├── contexts/                # React contexts
+│   │   │   └── AuthContext.jsx      # Auth state
+│   │   ├── pages/                   # Page components
+│   │   │   ├── AdminDashboard.jsx   # Admin UI
+│   │   │   ├── Login.jsx            # Auth page
+│   │   │   └── UserDashboard.jsx    # User UI
+│   │   ├── services/                # API integration
+│   │   │   └── api.js               # Axios config
+│   │   ├── App.jsx                  # Root component
+│   │   ├── main.jsx                 # Entry point
+│   │   └── index.css                # Global styles
+│   ├── .env.example                 # Environment template
+│   ├── package.json
+│   ├── tailwind.config.js           # Tailwind config
+│   └── vite.config.js               # Vite config
+│
+├── server/                          # Express Backend
+│   ├── src/
+│   │   ├── assets/                  # Server assets
+│   │   │   ├── logo.png             # PDF logo
+│   │   │   └── seal.png             # PDF seal
+│   │   ├── config/                  # Configuration
+│   │   │   └── appwrite.js          # Appwrite setup
+│   │   ├── middleware/              # Express middleware
+│   │   │   └── auth.js              # JWT verification
+│   │   ├── routes/                  # API routes
+│   │   │   ├── admin.js             # Admin endpoints
+│   │   │   ├── auth.js              # Auth endpoints
+│   │   │   └── form.js              # Form endpoints
+│   │   ├── utils/                   # Utilities
+│   │   │   └── pdfGenerator.js      # PDF creation
+│   │   └── index.js                 # Server entry
+│   ├── temp/                        # Temporary files
+│   ├── .env.example                 # Environment template
+│   └── package.json
+│
+├── .gitignore                       # Git ignore rules
+├── package.json                     # Root package.json
+├── README.md                        # This file
+└── LICENSE                          # MIT License
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+### Reporting Bugs
+
+1. Check existing [Issues](https://github.com/ahmedthousifgit571/yatrasutra/issues)
+2. Create a new issue with:
+   - Clear title
+   - Steps to reproduce
+   - Expected vs actual behavior
+   - Screenshots (if applicable)
+
+### Feature Requests
+
+1. Open an issue with the `enhancement` label
+2. Describe the feature and use case
+3. Explain expected behavior
+
+### Pull Requests
+
+1. **Fork** the repository
+2. **Create** a feature branch
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Commit** your changes
+   ```bash
+   git commit -m 'Add amazing feature'
+   ```
+4. **Push** to the branch
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+5. **Open** a Pull Request
+
+### Code Style
+
+- Follow existing code style
+- Use meaningful variable names
+- Comment complex logic
+- Write clean, readable code
+- Test your changes
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2025 Yatrasutra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
+
+---
+
+## 🙏 Acknowledgments
+
+- [React](https://reactjs.org/) - UI Library
+- [Express](https://expressjs.com/) - Backend Framework
+- [Appwrite](https://appwrite.io/) - Backend-as-a-Service
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
+- [PDFKit](http://pdfkit.org/) - PDF Generation
+- All contributors and users of this project
+
+---
+
+## 📧 Support
+
+Need help? Have questions?
+
+- 📫 **Email**: support@yatrasutra.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/ahmedthousifgit571/yatrasutra/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/ahmedthousifgit571/yatrasutra/discussions)
+
+---
+
+## 🗺️ Roadmap
+
+### Version 2.0 (Planned)
+
+- [ ] Email notifications for approvals/rejections
+- [ ] SMS integration for booking confirmations
+- [ ] Multi-language support
+- [ ] Payment gateway integration
+- [ ] Advanced analytics dashboard
+- [ ] Bulk approval/rejection
+- [ ] Export submissions to Excel
+- [ ] Custom PDF templates
+- [ ] Calendar view for bookings
+- [ ] Mobile app (React Native)
+
+---
+
+## 📊 Stats
+
+![GitHub Stars](https://img.shields.io/github/stars/ahmedthousifgit571/yatrasutra?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/ahmedthousifgit571/yatrasutra?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/ahmedthousifgit571/yatrasutra)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ahmedthousifgit571/yatrasutra)
+
+---
+
+<div align="center">
+
+### ⭐ Star this repository if you find it helpful!
 
 
-#   y a t r a s u t r a  
- 
+
+[⬆ Back to Top](#-yatrasutra---admin-approved-dynamic-form--pdf-generator)
+
+</div>
