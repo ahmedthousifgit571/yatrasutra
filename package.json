@@ -1,0 +1,22 @@
+{
+  "name": "pdf-generator",
+  "version": "1.0.0",
+  "description": "Admin-approved Dynamic Form + PDF generator",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "server:install": "cd server && npm install",
+    "client:install": "cd client && npm install",
+    "install:all": "npm install && npm run server:install && npm run client:install"
+  },
+  "keywords": ["pdf", "form", "admin", "appwrite"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
+
