@@ -701,71 +701,149 @@ module.exports = {
 
 ## 🚢 Deployment
 
-### Frontend Deployment (Vercel)
+### 📚 Complete Deployment Guides
 
-1. **Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Ready for deployment"
-   git push origin main
-   ```
+We provide comprehensive deployment documentation for your convenience:
 
-2. **Import to Vercel**
-   - Go to [Vercel](https://vercel.com)
-   - Click "Import Project"
-   - Select your repository
-   - Set **Root Directory**: `client`
+- 📖 **[Complete Deployment Guide](./DEPLOYMENT.md)** - Detailed step-by-step instructions for deploying both frontend and backend
+- ⚡ **[Quick Start Deployment](./DEPLOYMENT-QUICK-START.md)** - Fast deployment with automated scripts and checklists
 
-3. **Configure Build Settings**
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
+### 🎯 Quick Deployment Options
 
-4. **Environment Variables**
-   ```
-   VITE_API_URL=https://your-backend.onrender.com
-   VITE_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
-   VITE_APPWRITE_PROJECT_ID=your_project_id
-   ```
+#### Option 1: Automated Scripts (Recommended)
 
-5. **Deploy** ✅
+**Windows (PowerShell):**
+```powershell
+# Deploy Backend to Vercel
+.\deploy-backend.ps1
+
+# Deploy Frontend
+.\deploy-frontend.ps1
+```
+
+**Mac/Linux (Bash):**
+```bash
+# Make scripts executable
+chmod +x deploy-backend.sh deploy-frontend.sh
+
+# Deploy Backend to Vercel
+./deploy-backend.sh
+
+# Deploy Frontend
+./deploy-frontend.sh
+```
+
+#### Option 2: Manual Deployment
+
+**Backend to Vercel:**
+```bash
+cd server
+vercel login
+vercel --prod
+```
+
+**Frontend Options:**
+- **Appwrite Hosting** (Recommended)
+- **Vercel** (Alternative)
+- **Netlify** (Alternative)
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on each platform.
 
 ---
 
-### Backend Deployment (Render)
+### 🔐 Environment Variables
 
-1. **Create Web Service**
-   - Go to [Render](https://render.com)
-   - Click "New +" → "Web Service"
-   - Connect your GitHub repository
+Before deploying, make sure you have these environment variables ready:
 
-2. **Configure Service**
-   - Name: `yatrasutra-api`
-   - Root Directory: `server`
-   - Build Command: `npm install`
-   - Start Command: `npm start`
+**Backend (.env):**
+```env
+APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+APPWRITE_PROJECT_ID=your_project_id
+APPWRITE_API_KEY=your_api_key
+APPWRITE_DATABASE_ID=your_database_id
+APPWRITE_SUBMISSIONS_COLLECTION_ID=your_submissions_collection_id
+APPWRITE_USERS_COLLECTION_ID=your_users_collection_id
+APPWRITE_BUCKET_ID=your_bucket_id
+JWT_SECRET=your_jwt_secret
+NODE_ENV=production
+```
 
-3. **Environment Variables**
-   Add all variables from `server/.env`
-
-4. **Deploy** ✅
+**Frontend (.env):**
+```env
+VITE_API_URL=https://your-backend-url.vercel.app
+```
 
 ---
 
-### Production Checklist
+### ✅ Post-Deployment Checklist
+
+After deployment, verify:
+
+- [ ] Backend health check is accessible (`/health` endpoint)
+- [ ] Frontend loads correctly
+- [ ] Authentication works (login/register)
+- [ ] Forms load and validate properly
+- [ ] Form submission works
+- [ ] PDF generation works
+- [ ] Admin dashboard functions correctly
+- [ ] CORS is configured properly
+- [ ] All environment variables are set
+- [ ] SSL/HTTPS is enabled
+
+---
+
+### 🛡️ Production Security Checklist
 
 Before going live:
 
-- [ ] Change admin credentials
-- [ ] Use strong JWT secret
-- [ ] Enable HTTPS
-- [ ] Configure CORS properly
-- [ ] Add rate limiting
-- [ ] Implement password hashing (bcrypt)
-- [ ] Set up monitoring (Sentry, LogRocket)
-- [ ] Configure backup strategy
-- [ ] Update Appwrite permissions
-- [ ] Test all workflows
-- [ ] Prepare support documentation
+- [ ] Change default admin credentials
+- [ ] Use strong JWT secret (32+ characters)
+- [ ] Enable HTTPS on all deployments
+- [ ] Configure CORS to allow only your domains
+- [ ] Add rate limiting middleware
+- [ ] Implement password hashing with bcrypt
+- [ ] Set up error monitoring (Sentry, LogRocket)
+- [ ] Configure automated backups
+- [ ] Review Appwrite API key permissions
+- [ ] Test all user workflows thoroughly
+- [ ] Prepare user documentation
+
+---
+
+### 📊 Deployment Platforms Comparison
+
+| Platform | Best For | Pros | Free Tier |
+|----------|----------|------|-----------|
+| **Vercel** | Backend & Frontend | Easy setup, fast deploys, automatic SSL | ✅ Yes |
+| **Appwrite** | Frontend Hosting | Integrated with backend, one dashboard | ✅ Yes |
+| **Netlify** | Frontend | Great DX, easy rollbacks | ✅ Yes |
+| **Render** | Backend Alternative | Free tier, easy setup | ✅ Yes |
+
+---
+
+### 🚀 Deployment Scripts
+
+We've included deployment scripts to make your life easier:
+
+- `deploy-backend.sh` / `deploy-backend.ps1` - Deploy backend to Vercel
+- `deploy-frontend.sh` / `deploy-frontend.ps1` - Deploy frontend (multiple options)
+
+These scripts handle:
+- ✅ Dependency installation
+- ✅ Environment variable checks
+- ✅ Build processes
+- ✅ Deployment commands
+- ✅ Post-deployment instructions
+
+---
+
+### 📖 Additional Resources
+
+- [Vercel Documentation](https://vercel.com/docs)
+- [Appwrite Deployment Guide](https://appwrite.io/docs/deployment)
+- [Netlify Documentation](https://docs.netlify.com/)
+
+For detailed deployment instructions, troubleshooting, and advanced configurations, please refer to [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ---
 

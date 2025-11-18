@@ -1,0 +1,12 @@
+{
+  "$schema": "https://appwrite.io/schemas/appwrite.json",
+  "projectId": "YOUR_PROJECT_ID",
+  "projectName": "PDF Generator Client",
+  "settings": {
+    "buildCommand": "npm run build",
+    "buildOutput": "dist",
+    "installCommand": "npm install",
+    "rootDirectory": "."
+  }
+}
+
