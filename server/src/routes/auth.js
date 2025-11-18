@@ -6,7 +6,7 @@ import { Query, ID } from 'node-appwrite';
 const router = express.Router();
 
 // Mock admin credentials (in production, store securely in Appwrite)
-const ADMIN_EMAIL = 'admin@example.com';
+const ADMIN_EMAIL = 'admin@gmail.com';
 const ADMIN_PASSWORD = 'admin123'; // Change this!
 
 /**

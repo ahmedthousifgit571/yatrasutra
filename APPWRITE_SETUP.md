@@ -222,3 +222,4 @@ If you're using a self-hosted Appwrite instance:
 Once you've completed all these steps, you're ready to run the application! 🚀
 
 
+
